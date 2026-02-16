@@ -4,9 +4,13 @@ import Home from "./Home";
 import ComplaintTracker from "./ComplaintTracker";
 import LostAndFound from "./LostAndFound";
 import logo from '../../assets/images/logo.png'
+
+
+import { signOut } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 const UserDashboard = () => {
  const [activeItem, setActiveItem] = useState('home');
-
+const navigate=useNavigate()
   const renderContent = () => {
     switch(activeItem) {
       case 'register':
@@ -37,8 +41,9 @@ const UserDashboard = () => {
 
   const handleLogout = () => {
     signOut(auth).then(() => {
+
  console.log("Sign-out successful.")
- window.location.href="index.html"
+navigate("/")
 }).catch((error) => {
   console.log(error)
 });

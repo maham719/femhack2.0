@@ -3,8 +3,10 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from '../../assets/images/logo.png';
 import CustomButton from '../common/CustomButton';
+import { useNavigate } from 'react-router-dom';
 
 const NavbarMain = () => {
+  const navigate=useNavigate()
   return (
     <Navbar className='navbar-bg' expand="lg" data-bs-theme="dark">
       <Container className=''>
@@ -27,8 +29,8 @@ const NavbarMain = () => {
 
           {/* Buttons aligned to the right */}
           <div className="d-flex gap-2 mt-2 mt-lg-0">
-            <CustomButton text="Login" classname="customBtn"/>
-            <CustomButton text="Signup" classname="customBtn" />
+            <CustomButton text="Login" classname="customBtn"onClick={() => navigate("/login")}/>
+            <CustomButton text="Signup" classname="customBtn" onClick={() => navigate("/signup")}/>
           </div>
         </Navbar.Collapse>
       </Container>
